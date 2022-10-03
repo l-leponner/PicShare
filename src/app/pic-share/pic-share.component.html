@@ -1,1 +1,10 @@
-<p>pic-share works!</p>
+<div class="pic-share-card">
+  <h2>{{picShare.title}}</h2>
+  <p>Mis en ligne le : {{picShare.createdDate}}</p>
+  <img [src]="picShare.imageUrl" [alt]="picShare.title">
+  <p>{{picShare.description}}</p>
+  <p *ngIf="picShare.location">Photo prise {{picShare.location}}</p>
+  <p>
+    <button (click)="onLike()">{{buttonText}}</button>
+    Likes : {{picShare.likes}}</p>
+</div>
