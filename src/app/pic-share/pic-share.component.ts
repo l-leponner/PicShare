@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
+import {PicShareService} from "../services/pic-share.service";
 
 @Component({
   selector: 'app-pic-share',
@@ -11,6 +12,9 @@ export class PicShareComponent implements OnInit{
 
   buttonText!: string;
 
+  constructor(private picShareService: PicShareService) {
+  }
+
   ngOnInit() {
     this.buttonText = 'Me Likey!';
   }
@@ -18,10 +22,10 @@ export class PicShareComponent implements OnInit{
   onLike(){
 
     if (this.buttonText === 'Me Likey!'){
-      this.picShare.likes++;
+      this.picShareService.likePicShareById(this.picShare.id, 'like');
       this.buttonText = 'Oops! Unlike?'
     } else {
-      this.picShare.likes--;
+      this.picShareService.likePicShareById(this.picShare.id, 'unlike');
       this.buttonText = 'Me Likey!';
     }
   }
