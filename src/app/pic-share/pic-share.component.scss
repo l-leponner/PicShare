@@ -1,6 +1,41 @@
 .pic-share-card {
-  width: 35%;
+  width: 30%;
+  margin: 1% auto;
+  box-shadow: lightgray 3px 3px 20px;
+  padding: 1%;
   img {
     width: 100%;
+  }
+  button {
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: lightgray 3px 3px 7px;
+    margin-right: 20px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    &:active {
+      transform: translate(1px, 1px);
+      box-shadow: lightgray 0 0 5px;
+    }
+  }
+}
+
+.likes{
+  display: flex;
+  justify-content: center;
+}
+
+.liked {
+  background-color: rgba(lightgreen, 0.4);
+  color: darkgreen;
+  button {
+    box-shadow: lightgreen 3px 3px 7px;
+    color: darkgreen;
+    &:active {
+      box-shadow: lightgreen 0 0 5px;
+    }
   }
 }

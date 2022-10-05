@@ -1,10 +1,10 @@
-<div class="pic-share-card">
+<div class="pic-share-card" [ngClass]="{liked: buttonText === 'Oops! Unlike?'}">
   <h2>{{picShare.title}}</h2>
   <p>Mis en ligne le : {{picShare.createdDate}}</p>
   <img [src]="picShare.imageUrl" [alt]="picShare.title">
   <p>{{picShare.description}}</p>
   <p *ngIf="picShare.location">Photo prise {{picShare.location}}</p>
-  <p>
+  <p class="likes">
     <button (click)="onLike()">{{buttonText}}</button>
-    Likes : {{picShare.likes}}</p>
+    <span [ngStyle]="{color: 'rgb(0,' + picShare.likes*10 + ', 0'}">Likes : {{picShare.likes}}</span></p>
 </div>

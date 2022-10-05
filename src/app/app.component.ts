@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
         description: 'Un chat sur une branche devant une pleine Lune',
         createdDate: new Date(),
         imageUrl: 'https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736877_1280.jpg',
-        likes: 0,
+        likes: 5,
         location: 'dans mon jardin'
       },
       {
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
         description: 'Un chaton joue avec une fleur',
         createdDate: new Date(),
         imageUrl: 'https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg',
-        likes: 0
+        likes: 3
       }
     ];
 
