@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PicShareComponent } from './pic-share/pic-share.component';
 import { PicShareListComponent } from './pic-share-list/pic-share-list.component';
 import { HeaderComponent } from './header/header.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}
