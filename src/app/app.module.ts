@@ -8,6 +8,7 @@ import { PicShareListComponent } from './pic-share-list/pic-share-list.component
 import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SinglePicShareComponent } from './single-pic-share/single-pic-share.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PicShareComponent,
     PicShareListComponent,
     HeaderComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SinglePicShareComponent
   ],
   imports: [
     BrowserModule,

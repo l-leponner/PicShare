@@ -1,24 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-pic-share',
-  templateUrl: './pic-share.component.html',
-  styleUrls: ['./pic-share.component.scss']
+  selector: 'app-single-pic-share',
+  templateUrl: './single-pic-share.component.html',
+  styleUrls: ['./single-pic-share.component.scss']
 })
-export class PicShareComponent implements OnInit{
-  @Input() picShare!: PicShare;
+export class SinglePicShareComponent implements OnInit {
+
+  picShare!: PicShare;
 
   buttonText!: string;
 
   constructor(private picShareService: PicShareService,
-              private router: Router) {
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.buttonText = 'Me Likey!';
+    const picShareId = +this.route.snapshot.params['id'];
+    this.picShare = this.picShareService.getPicShareById(picShareId);
   }
 
   onLike(){
@@ -32,7 +35,4 @@ export class PicShareComponent implements OnInit{
     }
   }
 
-  onViewPicShare() {
-    this.router.navigateByUrl(`picshares/${this.picShare.id}`)
-  }
 }
