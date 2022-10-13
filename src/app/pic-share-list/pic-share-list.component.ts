@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
+import {interval, take, tap} from "rxjs";
 
 @Component({
   selector: 'app-pic-share-list',
@@ -15,6 +16,11 @@ export class PicShareListComponent implements OnInit {
 
   ngOnInit(): void {
     this.picShares = this.picShareService.getAllPicShares();
+
+    interval(1000).pipe(
+      take(1),
+      tap(console.log)
+    ).subscribe();
   }
 
 }
