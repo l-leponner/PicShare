@@ -1,26 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
-import {interval, take, tap} from "rxjs";
+import {interval, Subject, takeUntil, tap} from "rxjs";
 
 @Component({
   selector: 'app-pic-share-list',
   templateUrl: './pic-share-list.component.html',
   styleUrls: ['./pic-share-list.component.scss']
 })
-export class PicShareListComponent implements OnInit {
+export class PicShareListComponent implements OnInit, OnDestroy {
 
   picShares!: PicShare[];
+  private destroy$!: Subject<boolean>;
 
   constructor(private picShareService: PicShareService) { }
 
   ngOnInit(): void {
     this.picShares = this.picShareService.getAllPicShares();
+    this.destroy$ = new Subject<boolean>();
 
     interval(1000).pipe(
-      take(1),
+      takeUntil(this.destroy$),
       tap(console.log)
     ).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
   }
 
 }
