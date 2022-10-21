@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SinglePicShareComponent } from './single-pic-share/single-pic-share.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { SinglePicShareComponent } from './single-pic-share/single-pic-share.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}
