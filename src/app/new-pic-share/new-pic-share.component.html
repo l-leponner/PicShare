@@ -18,7 +18,7 @@
       <input type="text" id="location" formControlName="location">
     </div>
     <div class="action-buttons">
-      <button type="submit" (click)="onFormSubmit()">Enregistrer</button>
+      <button type="submit" (click)="onFormSubmit()" [disabled]="picShareForm.invalid">Enregistrer</button>
     </div>
   </form>
 </div>

@@ -52,4 +52,13 @@ export class PicShareService{
     likeType === 'like' ? picShare.likes++ : picShare.likes--;
   }
 
+  addNewPicShare(picShareFormValues: { title: string, description: string, imageUrl: string, location?: string }): void {
+    const picShare: PicShare = {
+      ...picShareFormValues,
+      createdDate: new Date(),
+      likes: 0,
+      id: this.picShares[this.picShares.length-1].id +1
+    };
+    this.picShares.push(picShare);
+  }
 }
