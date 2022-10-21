@@ -9,7 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SinglePicShareComponent } from './single-pic-share/single-pic-share.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NewPicShareComponent } from './new-pic-share/new-pic-share.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import {FormsModule} from "@angular/forms";
     PicShareListComponent,
     HeaderComponent,
     LandingPageComponent,
-    SinglePicShareComponent
+    SinglePicShareComponent,
+    NewPicShareComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

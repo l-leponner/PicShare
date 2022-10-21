@@ -1,0 +1,32 @@
+<div class="form-card">
+  <h2>NOUVEAU PICSHARE</h2>
+  <form [formGroup]="picShareForm">
+    <div class="form-group">
+      <label for="title">Titre</label>
+      <input type="text" id="title" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">URL de l'image</label>
+      <input type="text" id="imageUrl" formControlName="imageUrl">
+    </div>
+    <div class="form-group">
+      <label for="location">Lieu</label>
+      <input type="text" id="location" formControlName="location">
+    </div>
+    <div class="action-buttons">
+      <button type="submit" (click)="onFormSubmit()">Enregistrer</button>
+    </div>
+  </form>
+</div>
+
+<div class="pic-share-card" *ngIf="picSharePreview$ | async as picShare">
+  <h2>{{picShare.title | titlecase }}</h2>
+  <p>Mise en ligne {{picShare.createdDate | date: "à HH:mm le d MMM yyyy" }}</p>
+  <img [src]="picShare.imageUrl" [alt]="picShare.title">
+  <p>{{picShare.description}}</p>
+  <p *ngIf="picShare.location">Photo prise à {{picShare.location}}</p>
+</div>
