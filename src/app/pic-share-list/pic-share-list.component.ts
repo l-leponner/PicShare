@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
-import {interval, Subject, takeUntil, tap} from "rxjs";
+import {interval, Observable, Subject, takeUntil, tap} from "rxjs";
 
 @Component({
   selector: 'app-pic-share-list',
@@ -11,18 +11,21 @@ import {interval, Subject, takeUntil, tap} from "rxjs";
 export class PicShareListComponent implements OnInit, OnDestroy {
 
   picShares!: PicShare[];
+  picShares$!: Observable<PicShare[]>;
   private destroy$!: Subject<boolean>;
 
   constructor(private picShareService: PicShareService) { }
 
   ngOnInit(): void {
-    this.picShares = this.picShareService.getAllPicShares();
+    // this.picShares = this.picShareService.getAllPicShares();
     this.destroy$ = new Subject<boolean>();
 
-    interval(1000).pipe(
-      takeUntil(this.destroy$),
-      tap(console.log)
-    ).subscribe();
+    this.picShares$ = this.picShareService.getAllPicShares();
+
+    // interval(1000).pipe(
+    //   takeUntil(this.destroy$),
+    //   tap(console.log)
+    // ).subscribe();
   }
 
   ngOnDestroy(): void {

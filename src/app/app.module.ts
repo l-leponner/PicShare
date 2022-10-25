@@ -11,6 +11,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SinglePicShareComponent } from './single-pic-share/single-pic-share.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewPicShareComponent } from './new-pic-share/new-pic-share.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewPicShareComponent } from './new-pic-share/new-pic-share.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

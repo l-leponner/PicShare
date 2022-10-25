@@ -1,1 +1,1 @@
-<app-pic-share *ngFor="let picShare of picShares" [picShare]="picShare"></app-pic-share>
+<app-pic-share *ngFor="let picShare of picShares$ |async" [picShare]="picShare"></app-pic-share>

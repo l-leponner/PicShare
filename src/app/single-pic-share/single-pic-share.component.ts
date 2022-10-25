@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
 import {ActivatedRoute} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-single-pic-share',
@@ -11,6 +12,7 @@ import {ActivatedRoute} from "@angular/router";
 export class SinglePicShareComponent implements OnInit {
 
   picShare!: PicShare;
+  picShare$!: Observable<PicShare>;
 
   buttonText!: string;
 
@@ -21,18 +23,18 @@ export class SinglePicShareComponent implements OnInit {
   ngOnInit() {
     this.buttonText = 'Me Likey!';
     const picShareId = +this.route.snapshot.params['id'];
-    this.picShare = this.picShareService.getPicShareById(picShareId);
+    // this.picShare = this.picShareService.getPicShareById(picShareId);
+    this.picShare$ = this.picShareService.getPicShareById(picShareId);
   }
 
   onLike(){
-
-    if (this.buttonText === 'Me Likey!'){
-      this.picShareService.likePicShareById(this.picShare.id, 'like');
-      this.buttonText = 'Oops! Unlike?'
-    } else {
-      this.picShareService.likePicShareById(this.picShare.id, 'unlike');
-      this.buttonText = 'Me Likey!';
-    }
+    // if (this.buttonText === 'Me Likey!'){
+    //   this.picShareService.likePicShareById(this.picShare.id, 'like');
+    //   this.buttonText = 'Oops! Unlike?'
+    // } else {
+    //   this.picShareService.likePicShareById(this.picShare.id, 'unlike');
+    //   this.buttonText = 'Me Likey!';
+    // }
   }
 
 }

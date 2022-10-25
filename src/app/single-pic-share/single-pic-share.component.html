@@ -1,4 +1,4 @@
-<div class="pic-share-card" [ngClass]="{liked: buttonText === 'Oops! Unlike?'}">
+<div class="pic-share-card" *ngIf="picShare$ | async as picShare" [ngClass]="{liked: buttonText === 'Oops! Unlike?'}">
   <h2>{{picShare.title | titlecase}}</h2>
   <a routerLink="/picshares">Back</a>
   <p>Mise en ligne {{picShare.createdDate | date: 'le dd MMMM yyyy à HH:mm'}}</p>
