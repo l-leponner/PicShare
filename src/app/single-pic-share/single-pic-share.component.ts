@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
 import {ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-single-pic-share',
@@ -27,14 +27,16 @@ export class SinglePicShareComponent implements OnInit {
     this.picShare$ = this.picShareService.getPicShareById(picShareId);
   }
 
-  onLike(){
-    // if (this.buttonText === 'Me Likey!'){
-    //   this.picShareService.likePicShareById(this.picShare.id, 'like');
-    //   this.buttonText = 'Oops! Unlike?'
-    // } else {
-    //   this.picShareService.likePicShareById(this.picShare.id, 'unlike');
-    //   this.buttonText = 'Me Likey!';
-    // }
+  onLike(picShareId: number){
+    if (this.buttonText === 'Me Likey!'){
+      this.picShare$ = this.picShareService.likePicShareById(picShareId, 'like').pipe(
+        tap(() => this.buttonText = 'Oops! Unlike?')
+      );
+    } else {
+      this.picShare$ = this.picShareService.likePicShareById(picShareId, 'unlike').pipe(
+        tap(() => this.buttonText = 'Me Likey!')
+      );
+    }
   }
 
 }

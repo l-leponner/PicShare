@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {map, Observable} from "rxjs";
+import {map, Observable, tap} from "rxjs";
 import {PicShare} from "../models/pic-share.model";
 import {PicShareService} from "../services/pic-share.service";
 import {Router} from "@angular/router";
@@ -41,8 +41,9 @@ export class NewPicShareComponent implements OnInit {
   }
 
   onFormSubmit(): void {
-    this.picShareService.addNewPicShare(this.picShareForm.value);
-    this.router.navigateByUrl('/picshares');
+    this.picShareService.addNewPicShare(this.picShareForm.value).pipe(
+      tap(() => this.router.navigateByUrl('/picshares'))
+    ).subscribe();
   }
 
 }
