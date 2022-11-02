@@ -12,6 +12,7 @@ import { SinglePicShareComponent } from './single-pic-share/single-pic-share.com
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewPicShareComponent } from './new-pic-share/new-pic-share.component';
 import {HttpClientModule} from "@angular/common/http";
+import {httpInterceptorProviders} from "./interceptors";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'fr-FR'}
+    {provide: LOCALE_ID, useValue: 'fr-FR'},
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
