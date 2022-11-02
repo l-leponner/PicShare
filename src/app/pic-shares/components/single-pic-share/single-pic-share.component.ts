@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PicShare} from "../models/pic-share.model";
-import {PicShareService} from "../services/pic-share.service";
+import {PicShare} from "../../../core/models/pic-share.model";
+import {PicShareService} from "../../../core/services/pic-share.service";
 import {ActivatedRoute} from "@angular/router";
 import {Observable, tap} from "rxjs";
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {map, Observable, tap} from "rxjs";
-import {PicShare} from "../models/pic-share.model";
-import {PicShareService} from "../services/pic-share.service";
+import {PicShare} from "../../../core/models/pic-share.model";
+import {PicShareService} from "../../../core/services/pic-share.service";
 import {Router} from "@angular/router";
 
 @Component({
