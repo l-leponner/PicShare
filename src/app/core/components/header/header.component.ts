@@ -14,6 +14,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onAddNewPicShare(){
-    this.router.navigateByUrl('/create');
+    this.router.navigateByUrl('picshares/create');
   }
 }

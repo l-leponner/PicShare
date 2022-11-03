@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
 import {PicShareComponent} from "./components/pic-share/pic-share.component";
 import {PicShareListComponent} from "./components/pic-share-list/pic-share-list.component";
 import {SinglePicShareComponent} from "./components/single-pic-share/single-pic-share.component";
 import {NewPicShareComponent} from "./components/new-pic-share/new-pic-share.component";
+import {PicSharesRoutingModule} from "./pic-shares-routing.module";
 
 
 
@@ -19,7 +19,7 @@ import {NewPicShareComponent} from "./components/new-pic-share/new-pic-share.com
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule,
+    PicSharesRoutingModule,
   ],
   exports: [
     PicShareComponent,
